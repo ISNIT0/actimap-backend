@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Event } from 'src/database/entity/Event.entity';
+import { RemoteEventsService } from 'src/remote-events/remote-events.service';
 import { Between, MoreThanOrEqual, Repository } from 'typeorm';
 
 @Injectable()
@@ -8,6 +9,7 @@ export class EventsService {
   constructor(
     @InjectRepository(Event)
     private eventRepository: Repository<Event>,
+    private remoteEventsService: RemoteEventsService,
   ) {}
   async getEvents({
     from,
