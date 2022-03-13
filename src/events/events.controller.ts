@@ -14,7 +14,7 @@ export class EventsController {
     return this.eventsService.getEvents({
       from: new Date(from),
       to: new Date(to),
-      bbox: parsedBBox,
+      bbox: parsedBBox
     });
   }
 }

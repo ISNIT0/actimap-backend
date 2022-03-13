@@ -9,9 +9,17 @@ import { EventsService } from './events/events.service';
 import { RemoteEventsService } from './remote-events/remote-events.service';
 import { RemoteEventsController } from './remote-events/remote-events.controller';
 
+import { IcalService } from './ical/ical.service';
+import { IcalController } from './ical/ical.controller';
+
 @Module({
   imports: [DatabaseModule, TypeOrmModule.forFeature([Event])],
-  controllers: [AppController, EventsController, RemoteEventsController],
-  providers: [AppService, EventsService, RemoteEventsService],
+  controllers: [
+    AppController,
+    EventsController,
+    RemoteEventsController,
+    IcalController,
+  ],
+  providers: [AppService, EventsService, RemoteEventsService, IcalService],
 })
 export class AppModule {}
